@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################################################
 #  This file defines behaviour for slackware linux bash
-#  Michael Pratt <pratt@hablarmierda.net>
+#  Michael Pratt
 ##################################################################
 echo "   _____ __           __                          "
 echo "  / ___// /___ ______/ /___      ______ _________ "

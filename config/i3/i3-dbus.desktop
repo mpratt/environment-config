@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=i3 (dbus Enabled)
-Comment=improved dynamic tiling window manager
-Exec=ck-launch-session dbus-launch --exit-with-session /usr/bin/i3
-TryExec=i3
-Type=Application
-X-LightDM-DesktopName=i3
-DesktopNames=i3
