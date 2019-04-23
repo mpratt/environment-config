@@ -14,7 +14,7 @@ source "${ROOTLOCATION}/functions.sh"
 echo "Enable System Services"
 if [[ $(whoami) == "root" ]]; then
     echo "Enable Login Daemon LXDM"
-    systemctl enable lxdm.service
+    systemctl enable sddm.service
 
     echo "Enable Network Manager Service"
     systemctl enable NetworkManager.service

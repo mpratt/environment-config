@@ -1,12 +1,9 @@
 # Essentials
-osprober
 xorg
-xorg-server
 ack
 the_silver_searcher
 lz4
 p7zip
-p7zip-plugins 
 tar 
 rsync
 unrar
@@ -19,6 +16,9 @@ jshon
 expac 
 git 
 wget
+screen
+tmux
+tk
 
 # System
 hwinfo
@@ -29,7 +29,6 @@ pcre2
 lame
 twolame
 lua
-exiftool
 grub-customizer
 terminology
 alacritty
@@ -47,7 +46,6 @@ ttf-hack
 ttf-font-awesome
 adobe-source-sans-pro-fonts 
 adobe-source-code-pro-fonts
-adobe-source-serif-pro-font
 
 # Codecs
 exfat-utils
@@ -76,13 +74,12 @@ gst-libav
 gst-plugins-good 
 
 # Development
-vim
+#vim
 gvim
 go
 docker
 docker-compose
 docker-machine
-docker-machine-kvm
 android-tools
 dbeaver
 mysql-workbench
@@ -91,9 +88,9 @@ meld
 netbeans
 nodejs
 eclipse-cpp
-eclipse-java
-eclipse-php
-eclipse-javascript
+#eclipse-java
+#eclipse-php
+#eclipse-javascript
 flake8
 python-pip
 python-virtualenv
@@ -101,7 +98,7 @@ python-requests
 python-eyed3
 python-numpy
 ctags
-vscode
+code
 atom
 couchdb
 diffuse
@@ -112,14 +109,12 @@ apache
 mysql
 php
 php-apache
-php-mcrypt
 php-cgi 
 php-fpm 
 php-gd 
 php-embed 
 php-intl 
 php-imap 
-php-redis 
 php-snmp
 php-intl
 xdebug
@@ -133,10 +128,9 @@ oxygen-icons
 oxygen
 faenza-icon-theme
 mate-icon-theme-faenza
-numix-themes
 
 # Desktop
-lxdm
+sddm
 xfce4 
 xfce4-goodies
 cinnamon 
@@ -157,14 +151,14 @@ dmenu
 gmrun
 thunar-archive-plugin
 thunar-media-tags-plugin
-thunar-thumbnailers
 zenity
 xfce4-battery-plugin
 libmpdclient
 jsoncpp
+kcolorchooser
 
 # Multimedia
-gecko-mediaplayer 
+vlc
 dvd+rw-tools 
 dvdauthor 
 dvgrab

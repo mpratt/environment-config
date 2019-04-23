@@ -50,7 +50,7 @@ for h in ${HOSTS[@]}; do
 
             if [ -e "${LOCATION}/config/nm/${h}-central-city" ]; then
                 cat ${LOCATION}/config/nm/${h}-central-city > "/etc/NetworkManager/system-connections/central city"
-                chmod root:root "/etc/NetworkManager/system-connections/central city"
+                chown root:root "/etc/NetworkManager/system-connections/central city"
                 chmod 600 "/etc/NetworkManager/system-connections/central city"
             fi
 
@@ -107,6 +107,33 @@ if [ -w "/etc/" ]; then
     echo ""
 fi
 
+if [ -e "/etc/slackware-version" ] && [ -e "${LOCATION}/distros/slackware/slackware-install.sh" ]; then
+    bash "${LOCATION}/distros/slackware/slackware-install.sh" "${LOCATION}"
+fi
+
+if [ -e "/etc/arch-release" ] && [ -e "${LOCATION}/distros/archlinux/archlinux-install.sh" ]; then
+    bash "${LOCATION}/distros/archlinux/archlinux-install.sh" "${LOCATION}"
+fi
+
+read -p "Do you want to install Essential software? (y/n) " INSTALLPKGS
+if [[ "${INSTALLPKGS}" == "y" ]]; then
+    if [ -e "/etc/slackware-version" ]; then
+        bash "${LOCATION}/packages/slackware/slackware-pkgs.sh" "${LOCATION}"
+    fi
+
+    if [ -e "/etc/arch-release" ]; then
+        bash "${LOCATION}/packages/archlinux/archlinux-pkgs.sh" "${LOCATION}"
+    fi
+fi
+
+if [ -e "/etc/slackware-version" ] && [ -e "${LOCATION}/distros/slackware/slackware-post-install.sh" ]; then
+    bash "${LOCATION}/distros/slackware/slackware-post-install.sh" "${LOCATION}"
+fi
+
+if [ -e "/etc/arch-release" ] && [ -e "${LOCATION}/distros/archlinux/archlinux-post-install.sh" ]; then
+    bash "${LOCATION}/distros/archlinux/archlinux-post-install.sh" "${LOCATION}"
+fi
+
 if ! [ -e "${HOME}/.bin/psysh" ]; then
     echo "Installing psysh"
     wget http://psysh.org/psysh -O ~/.bin/psysh
@@ -144,29 +171,3 @@ if ! [ -e "${HOME}/.bin/phpcs" ] || ! [ -e "${HOME}/.bin/phpcbf" ]; then
     echo ""
 fi
 
-if [ -e "/etc/slackware-version" ] && [ -e "${LOCATION}/distros/slackware/slackware-install.sh" ]; then
-    bash "${LOCATION}/distros/slackware/slackware-install.sh" "${LOCATION}"
-fi
-
-if [ -e "/etc/arch-release" ] && [ -e "${LOCATION}/distros/archlinux/archlinux-install.sh" ]; then
-    bash "${LOCATION}/distros/archlinux/archlinux-install.sh" "${LOCATION}"
-fi
-
-read -p "Do you want to install Essential software? (y/n) " INSTALLPKGS
-if [[ "${INSTALLPKGS}" == "y" ]]; then
-    if [ -e "/etc/slackware-version" ]; then
-        bash "${LOCATION}/packages/slackware/slackware-pkgs.sh" "${LOCATION}"
-    fi
-
-    if [ -e "/etc/arch-release" ]; then
-        bash "${LOCATION}/packages/archlinux/archlinux-pkgs.sh" "${LOCATION}"
-    fi
-fi
-
-if [ -e "/etc/slackware-version" ] && [ -e "${LOCATION}/distros/slackware/slackware-post-install.sh" ]; then
-    bash "${LOCATION}/distros/slackware/slackware-post-install.sh" "${LOCATION}"
-fi
-
-if [ -e "/etc/arch-release" ] && [ -e "${LOCATION}/distros/archlinux/archlinux-post-install.sh" ]; then
-    bash "${LOCATION}/distros/archlinux/archlinux-post-install.sh" "${LOCATION}"
-fi
