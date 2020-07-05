@@ -45,22 +45,6 @@ for h in ${HOSTS[@]}; do
 
     if [ -n "$(grep -i -o ${h} ${HOSTNAMEFILE})" ]; then
 
-        if [ -w "/etc/NetworkManager/system-connections/" ]; then
-            echo "Creating network configuration for ${h}"
-
-            if [ -e "${LOCATION}/config/nm/${h}-central-city" ]; then
-                cat ${LOCATION}/config/nm/${h}-central-city > "/etc/NetworkManager/system-connections/central city"
-                chown root:root "/etc/NetworkManager/system-connections/central city"
-                chmod 600 "/etc/NetworkManager/system-connections/central city"
-            fi
-
-            if [ -e "${LOCATION}/config/nm/${h}-wired-local" ]; then
-                cat ${LOCATION}/config/nm/${h}-wired-local > "/etc/NetworkManager/system-connections/wired-local"
-                chown root:root "/etc/NetworkManager/system-connections/wired-local"
-                chmod 600 "/etc/NetworkManager/system-connections/wired-local"
-            fi
-        fi
-
         # Pasiphae Settings only
         if [[ "${h}" == "pasiphae" ]]; then
             if [ -w "/etc/udev/rules.d/" ]; then
